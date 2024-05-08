@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import RecipeList from "./components/lists/RecipeList";
+import dessertsData from "./components/database/desserts.json"; // Import desserts data
+import SearchBar from "./components/search/SearchBar";
 
-function App() {
+const App = () => {
+  const [showDesserts, setShowDesserts] = useState(false);
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    setRecipes(dessertsData);
+  }, []);
+
+  const handleClick = () => {
+    setShowDesserts(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!showDesserts ? (
+        <button className="button" onClick={handleClick}>
+          Fetch Desserts
+        </button>
+      ) : (
+        <>
+          <SearchBar />
+          <RecipeList recipes={recipes} />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;

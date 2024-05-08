@@ -1,0 +1,102 @@
+.RecipeList {
+  position: absolute;
+  top: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  gap: 2rem;
+  padding: 4rem;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensure description is hidden initially */
+}
+
+.recipe img {
+  width: 100%;
+  height: auto;
+}
+
+.recipe h3 {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.price mark {
+  background-color: rgb(170, 7, 170); /* Set text color to pink */
+  color: white;
+  border-radius: 5px; /* Add border radius */
+  padding: 2px 5px;
+}
+
+
+.recipe p {
+  margin: 0;
+  padding: 10px;
+}
+
+.recipe button {
+  background-color: white;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.recipe button:hover {
+  
+  font-weight: bold;
+}
+
+/* Make the first recipe occupy the entire first row */
+.recipe:first-child {
+  grid-column: 1 / span 3;
+}
+
+@media screen and (max-width: 768px) {
+  .RecipeList {
+    padding: .5rem;
+    gap: .5rem;
+    display: flex; /* Change display to flex for list view */
+    flex-direction: column; /* Arrange items in a column */
+  }
+
+  .recipe {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* Ensure description is hidden initially */
+  }
+
+  .title-price {
+    display: flex;
+    align-items: center; /* Vertically center items */
+  }
+  
+  .recipe-photo {
+    width: 30%;
+    display: flex;
+  justify-content: center; /* Horizontally center the image */
+  align-items: center; /* Vertically center the image */
+  }
+
+  .recipe-details {
+    flex: 1; /* Take up remaining space */
+    align-self: flex-end;
+  }
+
+  .recipe h3 {
+    margin: 1px 0;
+  }
+  
+  .recipe p {
+    margin: 0;
+    padding: 1px;
+  }
+
+  .recipe button {
+    align-self: flex-start; /* Align buttons to the start of the flex container */
+  }
+}
+
