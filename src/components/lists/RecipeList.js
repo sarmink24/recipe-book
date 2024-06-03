@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./RecipeList.css";
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = () => {
+  const [recipes, setRecipes] = useState([]);
   const [expandedId, setExpandedId] = useState(null);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/desserts");
+        setRecipes(response.data);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
 
   const toggleDescription = (id) => {
     setExpandedId(id === expandedId ? null : id);
