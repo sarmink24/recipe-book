@@ -18,10 +18,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Items from "./pages/items";
-// import DessertsList from "./pages/DessertsList";
-// import DessertDetail from "./pages/DessertDetail";
+import Details from "./pages/details";
+import Edit from "./pages/edit";
+import Delete from "./pages/delete";
 // import AddDessert from "./pages/AddDessert";
-// import EditDessert from "./pages/EditDessert";
 
 const App = () => {
   return (
@@ -29,9 +29,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/desserts" element={<Items />} />
-        {/* <Route path="/desserts/:id" element={<DessertDetail />} /> */}
+        <Route path="/desserts/:id" element={<Details />} />
         {/* <Route path="/add-dessert" element={<AddDessert />} /> */}
-        {/* <Route path="/edit-dessert/:id" element={<EditDessert />} /> */}
+        <Route path="/edit-dessert/:id" element={<Edit />} />
+        <Route path="/delete-dessert/:id" element={<Delete />} />
       </Routes>
     </Router>
   );

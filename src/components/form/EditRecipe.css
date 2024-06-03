@@ -1,0 +1,51 @@
+.edit-div{
+    padding: 1rem;
+    width: 100%;
+}
+.edit-recipe-container {
+    border: 1px solid #ccc;
+    border-radius: .2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .edit-recipe-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .edit-recipe-form {
+    margin-bottom: 20px;
+  }
+  
+  .form-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    width: 10rem;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Ensure it's displayed as a block-level element */
+    margin: 0 auto; /* Center the button horizontally */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .edit-recipe-container {
+      max-width: 90%;
+    }
+  }
+  

@@ -13,6 +13,10 @@ const RecipeList = () => {
   const alertMessage = location.state && location.state.alertMessage;
   const searchResults = location.state && location.state.searchResults;
 
+  const navigateToRecipe = (recipe) => {
+    navigate(`/desserts/${recipe.id}`, { state: { recipe } });
+  };
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -42,6 +46,7 @@ const RecipeList = () => {
     navigate("/desserts", { state: { alertMessage: null } });
   };
 
+
   return (
     <div className="RecipeList">
       {alertMessage ? (
@@ -52,7 +57,7 @@ const RecipeList = () => {
       ) : (
         <>
           {items.map((recipe) => (
-            <div key={recipe.id} className="recipe">
+            <div key={recipe.id} className="recipe" onClick={() => navigateToRecipe(recipe)}>
               <div className="recipe-photo">
                 <img src={recipe.imageUrl} alt={recipe.name} />
               </div>
