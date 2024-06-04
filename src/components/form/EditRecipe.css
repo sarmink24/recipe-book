@@ -37,10 +37,27 @@
     display: block; /* Ensure it's displayed as a block-level element */
     margin: 0 auto; /* Center the button horizontally */
   }
+
+  .image-preview {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-preview img {
+    max-width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
   
   .submit-button:hover {
     background-color: #0056b3;
   }
+
+  
   
   /* Responsive Styles */
   @media screen and (max-width: 768px) {

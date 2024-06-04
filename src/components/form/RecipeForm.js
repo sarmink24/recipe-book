@@ -1,57 +1,91 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./RecipeForm.css"; // Import the CSS file for styling
-import { Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const RecipeForm = ({ onSubmit }) => {
+const RecipeForm = () => {
   const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [preparationTime, setPreparationTime] = useState("");
-  const [servings, setServings] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({ name, description, preparationTime, servings });
-    setName("");
-    setDescription("");
-    setPreparationTime("");
-    setServings("");
+
+    try {
+      const response = await axios.post("http://localhost:3000/desserts", {
+        name,
+        price,
+        description,
+        imageUrl,
+      });
+      console.log("Recipe added:", response.data);
+      toast.success("Recipe updated successfully!", {
+        onClose: () => navigate("/desserts"), // Pass updated recipe data
+      });
+      // Clear the form fields
+      setName("");
+      setPrice("");
+      setDescription("");
+      setImageUrl("");
+    } catch (error) {
+      console.error("Error adding recipe:", error);
+    }
   };
 
   return (
-    <Modal>
-      <Modal.Header></Modal.Header>
-      <Modal.Body>
-        <form onSubmit={handleSubmit} className="recipe-form">
+    <div>
+      <form onSubmit={handleSubmit} className="recipe-form">
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
           <input
             type="text"
-            placeholder="Name"
+            id="name"
+            placeholder="Enter the recipe name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
-          <input
-            type="text"
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Preparation Time"
-            value={preparationTime}
-            onChange={(e) => setPreparationTime(e.target.value)}
-          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price</label>
           <input
             type="number"
-            placeholder="Servings"
-            value={servings}
-            onChange={(e) => setServings(e.target.value)}
+            id="price"
+            placeholder="Enter the price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
           />
-        </form>
-      </Modal.Body>
-      <Modal.Footer>
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            placeholder="Enter the recipe description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="imageUrl">Image URL</label>
+          <input
+            type="text"
+            id="imageUrl"
+            placeholder="Enter the URL for the recipe image"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            required
+          />
+        </div>
         <button type="submit">Add Recipe</button>
-      </Modal.Footer>
-    </Modal>
+      </form>
+      <ToastContainer />
+    </div>
   );
 };
 

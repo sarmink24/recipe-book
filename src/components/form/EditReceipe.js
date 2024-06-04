@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./EditRecipe.css"; // Import the CSS file for styling
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const EditRecipe = ({ recipe }) => {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
 
   // Set initial form values based on the recipe prop when it changes
   useEffect(() => {
@@ -14,18 +19,35 @@ const EditRecipe = ({ recipe }) => {
       setName(recipe.name || "");
       setDescription(recipe.description || "");
       setPrice(recipe.price || "");
+      setImageUrl(recipe.imageUrl || "");
     }
   }, [recipe]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform your update logic here
-    console.log("Updated recipe:", { id, name, description, price });
-    // Clear form fields after submission
-    setId("");
-    setName("");
-    setDescription("");
-    setPrice("");
+    const updatedRecipe = { id, name, description, price, imageUrl };
+
+    try {
+      const response = await fetch(`http://localhost:3000/desserts/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedRecipe),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update the recipe");
+      }
+      const data = await response.json();
+      console.log("Updated recipe:", data);
+      toast.success("Recipe updated successfully!", {
+        onClose: () => navigate(`/desserts/${id}`, { state: { recipe: data } }), // Pass updated recipe data
+      });
+    } catch (error) {
+      console.error("Error updating recipe:", error);
+      toast.error("Error updating recipe. Please try again.");
+    }
   };
 
   return (
@@ -53,11 +75,35 @@ const EditRecipe = ({ recipe }) => {
             onChange={(e) => setPrice(e.target.value)}
             className="form-input"
           />
+          <input
+            type="text"
+            placeholder="Image URL"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="form-input"
+          />
+          {imageUrl && (
+            <div className="image-preview">
+              <img src={imageUrl} alt="Recipe" />
+            </div>
+          )}
           <button type="submit" className="submit-button">
             Update
           </button>
         </form>
       </div>
+      <ToastContainer
+        position="top-center"
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className="toast-container"
+        toastClassName="toast" // Custom class for toasts
+      />
     </div>
   );
 };

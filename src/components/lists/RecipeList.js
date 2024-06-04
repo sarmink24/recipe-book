@@ -20,7 +20,7 @@ const RecipeList = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/desserts");
+        const response = await axios.get("http://localhost:3000/desserts");
         setRecipes(response.data);
       } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -46,7 +46,6 @@ const RecipeList = () => {
     navigate("/desserts", { state: { alertMessage: null } });
   };
 
-
   return (
     <div className="RecipeList">
       {alertMessage ? (
@@ -57,7 +56,11 @@ const RecipeList = () => {
       ) : (
         <>
           {items.map((recipe) => (
-            <div key={recipe.id} className="recipe" onClick={() => navigateToRecipe(recipe)}>
+            <div
+              key={recipe.id}
+              className="recipe"
+              onClick={() => navigateToRecipe(recipe)}
+            >
               <div className="recipe-photo">
                 <img src={recipe.imageUrl} alt={recipe.name} />
               </div>

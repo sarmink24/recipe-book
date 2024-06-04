@@ -21,7 +21,7 @@ import Items from "./pages/items";
 import Details from "./pages/details";
 import Edit from "./pages/edit";
 import Delete from "./pages/delete";
-// import AddDessert from "./pages/AddDessert";
+import Add from "./pages/add";
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/desserts" element={<Items />} />
         <Route path="/desserts/:id" element={<Details />} />
-        {/* <Route path="/add-dessert" element={<AddDessert />} /> */}
+        <Route path="/add-dessert" element={<Add />} />
         <Route path="/edit-dessert/:id" element={<Edit />} />
         <Route path="/delete-dessert/:id" element={<Delete />} />
       </Routes>

@@ -14,7 +14,7 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/desserts");
+        const response = await axios.get("http://localhost:3000/desserts");
         setRecipes(response.data);
       } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -23,6 +23,10 @@ const SearchBar = () => {
 
     fetchRecipes();
   }, []);
+
+  const handleAdd = () => {
+    navigate("/add-dessert");
+  };
 
   useEffect(() => {
     const results = recipes.filter(
@@ -63,7 +67,7 @@ const SearchBar = () => {
         </button>
       </form>
       <div className="add">
-        <button>
+        <button onClick={handleAdd}>
           <CgAdd className="add-icon" />
           Add
         </button>
