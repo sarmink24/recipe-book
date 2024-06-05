@@ -67,11 +67,11 @@ const RecipeDetails = ({ recipe }) => {
   };
 
   return (
-    <div key={recipe.id} className="recipe">
-      <div className="recipe-photo">
+    <div key={recipe.id} className="dessert">
+      <div className="dessert-photo">
         <img src={recipe.imageUrl} alt={recipe.name} />
       </div>
-      <div className="recipe-details">
+      <div className="dessert-details">
         <div className="title-price">
           <h3 className="price">
             <mark>${recipe.price}</mark>
@@ -82,17 +82,20 @@ const RecipeDetails = ({ recipe }) => {
           {expandedId === recipe.id
             ? recipe.description
             : `${recipe.description.slice(0, 40)}... `}
-          <button onClick={() => toggleDescription(recipe.id)}>
+          <button
+            className="read-more"
+            onClick={() => toggleDescription(recipe.id)}
+          >
             {expandedId === recipe.id ? "Read Less" : "Read More"}
           </button>
         </p>
-        <div>
-          <button onClick={handleEditClick} className="edit-button">
-            <CiEdit className="edit-icon" />
+        <div className="edit-delete">
+          <button onClick={handleEditClick} className="edit-b">
+            <CiEdit className="edit-i" />
             Edit
           </button>
-          <button onClick={handleDeleteClick} className="delete-button">
-            <RiDeleteBin6Line className="delete-icon" />
+          <button onClick={handleDeleteClick} className="delete-b">
+            <RiDeleteBin6Line className="delete-i" />
             Delete
           </button>
         </div>

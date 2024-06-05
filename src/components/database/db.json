@@ -1,7 +1,7 @@
 {
   "desserts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tiramisu",
       "price": 5,
       "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9354028.jpg&w=426&h=285&c=sc&poi=face&q=85",
@@ -24,9 +24,9 @@
     {
       "id": "4",
       "name": "Peach Cobbler Coffee Cake",
+      "description": "Peach cobbler coffee is a delightful and unique blend that combines the warm, comforting flavors of a classic peach cobbler dessert with the rich, robust taste of coffee.",
       "price": 4.5,
-      "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9354028.jpg&w=426&h=285&c=sc&poi=face&q=85",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut lacus rhoncus, vulputate urna aliquet, semper ex."
+      "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9354028.jpg&w=426&h=285&c=sc&poi=face&q=85"
     },
     {
       "id": "5",

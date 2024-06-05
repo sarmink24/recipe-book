@@ -1,29 +1,53 @@
-.recipe {
+.dessert {
   display: flex;
   width: 100%;
   flex-direction: row;
   padding: 2rem;
 }
 
-.recipe-photo, .recipe-details {
+.dessert-photo, .dessert-details {
+  padding: .5rem;
   flex: 1;
   width: 50%;
   box-sizing: border-box;
 }
 
-.recipe-photo img {
+.dessert-photo img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.edit-b,
-.delete-b {
+.read-more {
+  background-color: white;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-delete {
+  display: flex;
+  gap: 1rem; /* Adjust the gap value as needed */
+}
+.edit-b {
   background-color: #007bff;
   color: white;
-  padding: 8px;
+  padding: .6rem;
   border: none;
-  border-radius: 4px;
+  border-radius: .3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.delete-b {
+  background-color: red;
+  color: white;
+  padding: .6rem;
+  border: none;
+  border-radius: .3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -31,6 +55,7 @@
 
 .edit-i, .delete-i {
   margin-right: .2rem;
+  font-weight: bold;
 }
 
 .toast-container {
@@ -68,13 +93,18 @@
   background-color: #0056b3;
 }
 
+.read-more:hover {
+  background-color: white;
+  font-weight: bold;
+}
+
 
 @media (max-width: 768px) {
-  .recipe {
+  .dessert {
     flex-direction: column;
   }
 
-  .recipe-photo, .recipe-details {
+  .dessert-photo, .dessert-details {
     width: 100%;
   }
 }

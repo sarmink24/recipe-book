@@ -82,7 +82,7 @@ const RecipeList = () => {
               </div>
             </div>
           ))}
-          <p onClick={handleGoBack}>Go back!</p>
+          {searchResults ? <p onClick={handleGoBack}>Go back!</p> : <p></p>}
         </>
       )}
       {/* {items.map((recipe) => (

@@ -46,7 +46,7 @@
 }
 
 .recipe button:hover {
-  
+  background-color: white;
   font-weight: bold;
 }
 
