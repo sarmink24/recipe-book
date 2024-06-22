@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./EditRecipe.css"; // Import the CSS file for styling
+import "./EditRecipe.css"; 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
