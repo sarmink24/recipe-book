@@ -98,6 +98,32 @@
   font-weight: bold;
 }
 
+.go-back {
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;  /* Center vertically */
+  padding: 10px;  /* Adjust based on your design */
+  margin: 20px 0;  /* Adjust based on your design */
+  background-color: #f5f5f5;  /* Optional: light background */
+  border-radius: 5px;  /* Optional: rounded corners */
+}
+
+.goback-button {
+  background-color: #007bff;  /* Primary color (adjust to your design) */
+  color: white;  /* Text color */
+  border: none;  /* Remove default border */
+  padding: 10px 20px;  /* Adjust based on your design */
+  font-size: 16px;  /* Adjust based on your design */
+  cursor: pointer;  /* Pointer cursor */
+  border-radius: 5px;  /* Rounded corners */
+  transition: background-color 0.3s, transform 0.3s;  /* Smooth transitions */
+}
+
+.goback-button:hover {
+  background-color: #0056b3;  /* Darker shade for hover */
+  transform: translateY(-2px);  /* Slight lift on hover */
+}
+
 
 @media (max-width: 768px) {
   .dessert {

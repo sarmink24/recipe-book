@@ -23,6 +23,7 @@ const RecipeForm = () => {
         imageUrl,
       });
       console.log("Recipe added:", response.data);
+    
       toast.success("Recipe updated successfully!", {
         onClose: () => navigate("/desserts"), // Pass updated recipe data
       });

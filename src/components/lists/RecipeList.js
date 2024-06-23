@@ -24,6 +24,7 @@ const RecipeList = () => {
   const alertMessage = location.state?.alertMessage;
   const searchResults = location.state?.searchResults;
 
+
   const navigateToRecipe = (recipe) => {
     navigate(`/desserts/${recipe.id}`, { state: { recipe } });
   };
@@ -125,7 +126,9 @@ const RecipeList = () => {
       {alertMessage ? (
         <>
           <p>{alertMessage}</p>
-          <p onClick={handleGoBack} style={{ cursor: 'pointer' }}>Go back!</p>
+          <div className="go-back">
+          <button  className="goback-button" onClick={handleGoBack}> {"<<"} Go Back</button>
+        </div>
         </>
       ) : (
         <>
@@ -166,7 +169,9 @@ const RecipeList = () => {
               </div>
             </div>
           ))}
-          {searchResults && <p onClick={handleGoBack} style={{ cursor: 'pointer' }}>Go back!</p>}
+          {searchResults && <div className="go-back">
+          <button className="goback-button" onClick={handleGoBack}> {"<<"} Go Back</button>
+        </div>}
 
           <Modal isOpen={isEditModalOpen} onClose={closeModal}>
         {selectedRecipe && <EditRecipe recipe={selectedRecipe} />}

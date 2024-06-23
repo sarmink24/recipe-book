@@ -51,60 +51,6 @@ const EditRecipe = ({ recipe }) => {
   };
 
   return (
-    // <div className="edit-div">
-    //   <h5 className="modal-header">Edit Recipe</h5>
-    //   <div className="modal-body">
-    //     <form onSubmit={handleSubmit} className="recipe-form">
-    //       <input
-    //         type="text"
-    //         placeholder="Name"
-    //         value={name}
-    //         onChange={(e) => setName(e.target.value)}
-    //         className="form-input"
-    //       />
-    //       <textarea
-    //         placeholder="Description"
-    //         value={description}
-    //         onChange={(e) => setDescription(e.target.value)}
-    //         className="form-input"
-    //       />
-    //       <input
-    //         type="number"
-    //         placeholder="Price"
-    //         value={price}
-    //         onChange={(e) => setPrice(e.target.value)}
-    //         className="form-input"
-    //       />
-    //       <input
-    //         type="text"
-    //         placeholder="Image URL"
-    //         value={imageUrl}
-    //         onChange={(e) => setImageUrl(e.target.value)}
-    //         className="form-input"
-    //       />
-    //       {imageUrl && (
-    //         <div className="image-preview">
-    //           <img src={imageUrl} alt="Recipe" />
-    //         </div>
-    //       )}
-    //       <button type="submit" className="submit-button">
-    //         Update
-    //       </button>
-    //     </form>
-    //   </div>
-    //   <ToastContainer
-    //     position="top-center"
-    //     hideProgressBar
-    //     newestOnTop
-    //     closeOnClick
-    //     rtl={false}
-    //     pauseOnFocusLoss
-    //     draggable
-    //     pauseOnHover
-    //     className="toast-container"
-    //     toastClassName="toast" // Custom class for toasts
-    //   />
-    // </div>
 
     <div className="edit-div">
       <h5 className="modal-header">Edit Recipe</h5>
