@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm install` 
 Install node modules
 
-### `npm install -g json-server1
+### `npm install -g json-server`
 Install JSON Server: If you haven't already installed JSON Server globally, you can do so via npm (Node Package Manager). Open your command line interface (CLI) and run this command.
 
 ### `json-server --watch src/components/database/db.json`
