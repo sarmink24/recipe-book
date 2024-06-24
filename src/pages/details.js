@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../App.css";
+import "./details.css";
 import RecipeDetails from "../components/details/RecipeDetails";
 import RecipeForm from "../components/form/RecipeForm";
 import Modal from "../components/Modal";

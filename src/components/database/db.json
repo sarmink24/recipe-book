@@ -10,9 +10,9 @@
     {
       "id": "5",
       "name": "Chocolate Chip Cookies",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut lacus rhoncus, vulputate urna aliquet, semper ex. rhoncus rhoncus",
       "price": 2.99,
-      "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2019%2F12%2Fbest-chocolate-chip-cookies.jpg&w=300&h=201&c=sc&poi=face&q=85",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut lacus rhoncus, vulputate urna aliquet, semper ex."
+      "imageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2019%2F12%2Fbest-chocolate-chip-cookies.jpg&w=300&h=201&c=sc&poi=face&q=85"
     },
     {
       "id": "c6b2",
