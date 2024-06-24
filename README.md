@@ -6,10 +6,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install` 
+Install node modules
+
+### `npm install -g json-server1
+Install JSON Server: If you haven't already installed JSON Server globally, you can do so via npm (Node Package Manager). Open your command line interface (CLI) and run this command.
+
+### `json-server --watch src/components/database/db.json`
+Starts json-server on port 3000
+
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
