@@ -1,7 +1,6 @@
 
 
 import React from "react";
-import "../App.css";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
@@ -11,7 +10,7 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
+    <div className="Home">
       <button className="button" onClick={handleClick}>
         Fetch Desserts
       </button>

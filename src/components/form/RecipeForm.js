@@ -1,39 +1,47 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./RecipeForm.css"; // Import the CSS file for styling
-import { useNavigate } from "react-router-dom";
 
-const RecipeForm = () => {
+const RecipeForm = ({ onSave, initialRecipe }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    if (initialRecipe) {
+      setName(initialRecipe.name || "");
+      setDescription(initialRecipe.description || "");
+      setPrice(initialRecipe.price || "");
+      setImageUrl(initialRecipe.imageUrl || "");
+    } else {
+      setName("");
+      setDescription("");
+      setPrice("");
+      setImageUrl("");
+    }
+  }, [initialRecipe]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/desserts", {
-        name,
-        price,
-        description,
-        imageUrl,
-      });
-      console.log("Recipe added:", response.data);
-    
-      toast.success("Recipe updated successfully!", {
-        onClose: () => navigate("/desserts"), // Pass updated recipe data
-      });
-      // Clear the form fields
+      const newRecipe = { id: initialRecipe?.id, name, description, price, imageUrl };
+
+      await onSave(newRecipe);
+
       setName("");
-      setPrice("");
       setDescription("");
+      setPrice("");
       setImageUrl("");
+
+      toast.success("Recipe saved successfully!");
     } catch (error) {
-      console.error("Error adding recipe:", error);
+      console.error("Error saving recipe:", error);
+      toast.error("Error saving recipe. Please try again.");
     }
   };
 
@@ -83,7 +91,12 @@ const RecipeForm = () => {
             required
           />
         </div>
-        <button type="submit">Add Recipe</button>
+        {imageUrl && (
+          <div className="form-group image-preview">
+            <img src={imageUrl} alt="Recipe" />
+          </div>
+        )}
+        <button type="submit">Submit</button>
       </form>
       <ToastContainer />
     </div>
@@ -91,3 +104,4 @@ const RecipeForm = () => {
 };
 
 export default RecipeForm;
+
