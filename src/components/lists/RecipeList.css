@@ -31,6 +31,11 @@
   padding: 10px;
 }
 
+.no-data {
+  grid-column: span 3;
+  text-align: center;
+}
+
 .price mark {
   background-color: rgb(170, 7, 170);
   color: white;

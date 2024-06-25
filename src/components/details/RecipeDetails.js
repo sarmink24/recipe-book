@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -40,7 +39,7 @@ const RecipeDetails = ({ recipe, onEdit, onDelete }) => {
       <div className="dessert-details">
         <div className="title-price">
           <h3 className="price">
-          <mark>${parseFloat(recipe.price).toFixed(2)}</mark>
+            <mark>${parseFloat(recipe.price).toFixed(2)}</mark>
           </h3>
           <h3 className="title">{recipe.name}</h3>
         </div>
@@ -73,4 +72,3 @@ const RecipeDetails = ({ recipe, onEdit, onDelete }) => {
 };
 
 export default RecipeDetails;
-

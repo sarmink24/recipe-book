@@ -6,15 +6,13 @@ import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "react-toastify/dist/ReactToastify.css";
 
-const RecipeList = ({ recipes, onEdit, onDelete  }) => {
-  
+const RecipeList = ({ recipes, onEdit, onDelete }) => {
   const [expandedId, setExpandedId] = useState(null);
   const navigate = useNavigate();
-  
+
   const navigateToRecipe = (recipe) => {
     navigate(`/desserts/${recipe.id}`, { state: { recipe } });
   };
-  
 
   const toggleDescription = (id) => {
     setExpandedId(id === expandedId ? null : id);
@@ -26,17 +24,22 @@ const RecipeList = ({ recipes, onEdit, onDelete  }) => {
 
   return (
     <div className="RecipeList">
-      
-        <>
-          {recipes.map((recipe) => (
+      <>
+        {recipes.length === 0 ? (
+          <div className="no-data">No result available!</div>
+        ) : (
+          recipes.map((recipe) => (
             <div key={recipe.id} className="recipe">
-              <div className="recipe-photo" onClick={() => navigateToRecipe(recipe)}>
+              <div
+                className="recipe-photo"
+                onClick={() => navigateToRecipe(recipe)}
+              >
                 <img src={recipe.imageUrl} alt={recipe.name} />
               </div>
               <div className="recipe-details">
                 <div className="title-price">
                   <h3 className="price">
-                  <mark>${parseFloat(recipe.price).toFixed(2)}</mark>
+                    <mark>${parseFloat(recipe.price).toFixed(2)}</mark>
                   </h3>
                   <h3 className="title">{recipe.name}</h3>
                 </div>
@@ -50,7 +53,10 @@ const RecipeList = ({ recipes, onEdit, onDelete  }) => {
                 </p>
               </div>
               <div className="actions-button">
-                <button onClick={() => navigateToRecipe(recipe)} className="edit-b">
+                <button
+                  onClick={() => navigateToRecipe(recipe)}
+                  className="edit-b"
+                >
                   <BiDetail className="detail-icon" />
                   Details
                 </button>
@@ -58,18 +64,18 @@ const RecipeList = ({ recipes, onEdit, onDelete  }) => {
                   <CiEdit className="edit-i" />
                   Edit
                 </button>
-                <button onClick={() => onDelete(recipe.id)} className="delete-b">
+                <button
+                  onClick={() => onDelete(recipe.id)}
+                  className="delete-b"
+                >
                   <RiDeleteBin6Line className="delete-i" />
                   Delete
                 </button>
               </div>
             </div>
-          ))}
-          <div className="go-back">
-          <button className="goback-button" onClick={handleGoBack}> {"<<"} Go Back</button>
-        </div>
-        </>
-      
+          ))
+        )}
+      </>
     </div>
   );
 };
