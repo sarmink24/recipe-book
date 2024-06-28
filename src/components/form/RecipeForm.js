@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -29,7 +28,13 @@ const RecipeForm = ({ onSave, initialRecipe }) => {
     event.preventDefault();
 
     try {
-      const newRecipe = { id: initialRecipe?.id, name, description, price, imageUrl };
+      const newRecipe = {
+        id: initialRecipe?.id,
+        name,
+        description,
+        price,
+        imageUrl,
+      };
 
       await onSave(newRecipe);
 
@@ -96,7 +101,9 @@ const RecipeForm = ({ onSave, initialRecipe }) => {
             <img src={imageUrl} alt="Recipe" />
           </div>
         )}
-        <button type="submit">Submit</button>
+        <div className="button-div">
+          <button type="submit">Submit</button>
+        </div>
       </form>
       <ToastContainer />
     </div>
@@ -104,4 +111,3 @@ const RecipeForm = ({ onSave, initialRecipe }) => {
 };
 
 export default RecipeForm;
-

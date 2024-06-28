@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import "./RecipeDetails.css";
-import Modal from "../Modal";
-import EditRecipe from "../form/EditReceipe";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -16,19 +13,8 @@ const RecipeDetails = ({ recipe, onEdit, onDelete }) => {
       prevExpandedId === recipe.id ? null : recipe.id
     );
   };
-
   const handleGoBack = () => {
     navigate("/desserts");
-  };
-
-  const handleEdit = () => {
-    onEdit(recipe); // Trigger the parent component's onEdit function
-    toast.info("Editing recipe...");
-  };
-
-  const handleDelete = () => {
-    onDelete(recipe.id); // Trigger the parent component's onDelete function
-    toast.warn("Deleting recipe...");
   };
 
   return (
@@ -52,11 +38,11 @@ const RecipeDetails = ({ recipe, onEdit, onDelete }) => {
           </button>
         </p>
         <div className="edit-delete">
-          <button onClick={handleEdit} className="edit-b">
+          <button onClick={() => onEdit(recipe)} className="edit-b">
             <CiEdit className="edit-i" />
             Edit
           </button>
-          <button onClick={handleDelete} className="delete-b">
+          <button onClick={() => onDelete(recipe.id)} className="delete-b">
             <RiDeleteBin6Line className="delete-i" />
             Delete
           </button>
