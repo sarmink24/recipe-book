@@ -1,4 +1,5 @@
 import React from "react";
+import "./deleteRecipe.css";
 
 const DeleteRecipe = ({ onClose, onConfirm }) => (
   <div className="delete-modal">

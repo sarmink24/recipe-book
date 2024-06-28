@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import RecipeList from "../components/lists/RecipeList";
-import SearchBar from "../components/search/SearchBar";
-import Modal from "../components/Modal";
+import RecipeList from "../components/lists/recipeList";
+import SearchBar from "../components/search/searchBar";
 import RecipeForm from "../components/form/RecipeForm";
 import axios from "axios";
 import { CgAdd } from "react-icons/cg";
 import "./items.css";
+import Modal from "../components/modal";
 import useAddEditRecipe from "../hooks/useAddEditRecipe";
 import useDeleteRecipe from "../hooks/useDeleteRecipe";
-import DeleteRecipe from "../components/DeleteRecipe";
+import DeleteRecipe from "../components/deleteRecipe";
 
 const Items = () => {
   const [recipes, setRecipes] = useState([]);

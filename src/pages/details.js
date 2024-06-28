@@ -3,12 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./details.css";
 import RecipeDetails from "../components/details/RecipeDetails";
 import RecipeForm from "../components/form/RecipeForm";
-import Modal from "../components/Modal";
+import Modal from "../components/modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAddEditRecipe from "../hooks/useAddEditRecipe";
 import useDeleteRecipe from "../hooks/useDeleteRecipe";
-import DeleteRecipe from "../components/DeleteRecipe";
+import DeleteRecipe from "../components/deleteRecipe";
 
 const Details = () => {
   const location = useLocation();
