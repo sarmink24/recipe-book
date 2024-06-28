@@ -22,7 +22,7 @@
   }
   
   .Toastify__toast-container {
-    z-index: 9999; /* Ensure the ToastContainer is above other elements */
+    z-index: 9999; 
     position: fixed;
     top: 20px;
     right: 20px;

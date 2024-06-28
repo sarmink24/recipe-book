@@ -16,3 +16,4 @@ const DeleteRecipe = ({ onClose, onConfirm }) => (
 );
 
 export default DeleteRecipe;
+

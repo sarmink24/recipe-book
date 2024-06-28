@@ -30,7 +30,7 @@
 
 .edit-delete {
   display: flex;
-  gap: 1rem; /* Adjust the gap value as needed */
+  gap: 1rem; 
 }
 .edit-b {
   background-color: #007bff;
