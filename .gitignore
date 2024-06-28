@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+git config core.ignorecase false
+
+
 # production
 /build
 
