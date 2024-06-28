@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./details.css";
-import RecipeDetails from "../components/details/RecipeDetails";
-import RecipeForm from "../components/form/RecipeForm";
+import RecipeDetails from "../components/details/recipeDetails";
+import RecipeForm from "../components/form/recipeForm";
 import Modal from "../components/modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

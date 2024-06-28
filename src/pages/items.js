@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RecipeList from "../components/lists/recipeList";
 import SearchBar from "../components/search/searchBar";
-import RecipeForm from "../components/form/RecipeForm";
+import RecipeForm from "../components/form/recipeForm";
 import axios from "axios";
 import { CgAdd } from "react-icons/cg";
 import "./items.css";
@@ -87,19 +87,7 @@ const Items = () => {
           onConfirm={() => handleDeleteConfirm(setRecipes, setFilteredRecipes)}
           onClose={handleDeleteCancel}
         />
-        {/* <div className="delete-modal">
-          <h3>Are you sure you want to delete this recipe?</h3>
-          <div className="button-group">
-            <button
-              onClick={() =>
-                handleDeleteConfirm(setRecipes, setFilteredRecipes)
-              }
-            >
-              Yes
-            </button>
-            <button onClick={handleDeleteCancel}>No</button>
-          </div>
-        </div> */}
+      
       </Modal>
     </>
   );

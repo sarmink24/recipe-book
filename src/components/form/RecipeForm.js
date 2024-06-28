@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./RecipeForm.css"; // Import the CSS file for styling
+import "./recipeForm.css"; // Import the CSS file for styling
 
 const RecipeForm = ({ onSave, initialRecipe }) => {
   const [name, setName] = useState("");
