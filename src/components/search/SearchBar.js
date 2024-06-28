@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./searchBar.css";
 
@@ -22,4 +21,3 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
-
